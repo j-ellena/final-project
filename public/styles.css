@@ -1,15 +1,130 @@
+* {
+    margin: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Courgette', cursive;
+    color: white;
+    /* font-size: 3vw; */
+}
+
 body {
-    background-color: red;
 }
 
-.layout {
-    padding: 1vw;
-    border: 0.5vw solid white;
-    background-color: yellow;
+#main-layout {
 }
 
-.view {
-    padding: 1vw;
-    border: 0.5vw solid white;
-    background-color: green;
+.center {
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.right {
+    margin-left: auto;
+}
+
+
+a {
+
+}
+
+/******************************************************************************/
+/* home view */
+/******************************************************************************/
+
+#home-view {
+    background-image: url("../assets/img/background.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+#home-view h1 {
+    position: fixed;
+    top: 15vw;
+    left: 10vw;
+    right: 12vw;
+    font-size: 7vw;
+    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border-radius: 3vw;
+}
+
+/******************************************************************************/
+/* nav partial */
+/******************************************************************************/
+
+#nav-partial {
+    height: 6vw;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding: 0 0.2vw;
+    overflow: hidden;
+    background-color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+#logo-nav img {
+    height: 6vw;
+}
+
+#lang-nav img {
+    height: 6vw;
+}
+
+/******************************************************************************/
+/* lang partial */
+/******************************************************************************/
+
+#lang-partial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.5);
+    border-bottom-left-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+    position: fixed;
+    width: 10vw;
+    top: 6vw;
+    right: 1vw;
+    z-index: 10;
+    margin-top: -50vh;
+    animation: langDown 1.5s 0s forwards;
+}
+
+@keyframes langDown {
+    to {
+        display: block;
+        margin-top: 0vh;
+    }
+}
+
+.lang-icon {
+    height: 6vw;
+    margin: 1vw 0;
+}
+
+.lang-icon:hover {
+    height: 8vw;
+    margin: 0;
+}
+
+/******************************************************************************/
+/* combo */
+/******************************************************************************/
+
+#nav-partial img,
+#lang-partial img {
+    cursor: pointer;
+}
+
+/******************************************************************************/
+/*  */
+/******************************************************************************/

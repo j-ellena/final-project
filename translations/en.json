@@ -1,0 +1,146 @@
+{
+  "nav_home" : "Home",
+  "nav_apartment" : "Apartments",
+  "nav_about" : "About",
+  "nav_where" : "Where are we",
+  "nav_contact" : "Contact",
+  "nav_products" : "Products",
+  "nav_info" : "Info",
+
+  "header_info" : "Welcome!", 
+  "header_opinion" : "What do you think about our page?",
+  "header_opinion_btn" : "Leave comment",
+
+  "home_subtitle" : "Dear guests, welcome to apartments Petković!",
+
+  "home_info_title" : "Informations",
+  "home_info_text1" : "All you need for everyday life can be purchased just few kilometers from us in a large shopping center",
+  "home_info_text2" : "Interesting facts about the Sibenik-Knin County can be found on the official site of",
+  "home_info_text3" : "tourist board",
+
+  "home_info_serv_title" : "Service informations",
+  "home_info_serv_plan" : "Trip planning",
+  "home_info_serv_money" : "Currency converter",
+  "home_info_serv_dipl" : "Diplomatic offices",
+  "home_info_serv_weather" : "Weather forecast",
+  "home_info_serv_temp" : "Sea temperatures",
+  "home_info_serv_sea" : "Sea quality",
+  "home_info_serv_sail" : "Navigation timetable",
+
+  "home_welcome_title" : "Welcome",
+  "home_welcome_text" : "After the city noise - If you want a peace that is disturbed only by crickets, rest in our house surrounded by greenery, close to the beach by the waves lapping clear blue sea. Your hosts will ensure that your stay is complete. We will introduce you to the natural beauty and our cultural heritage.",
+
+  "home_app_title" : "Apartments",
+  "home_app_text" : "We are located in the charming village Crveni Brig, next to the town Žaboric, 10 km from Šibenik. There you have 6 apartments each with private entrance, bathroom, kitchen and terrace. Number of rooms/beds differ between apartments to meet the needs of couples and families. For larger groups there is the possibility of connecting apartments.",
+  "home_app_left_info" : "Beach <b>50 m</b><br/>Store <b>900 m</b><br/>Restorant <b>400 m</b><br/>Gas station <b>5 km</b><br/>Doctor: <b>3 km</b><br/>ATM <b>3 km</b>",
+  "home_app_right_info" : "<b>WiFi</b><br/><b>Parking</b><br/><b>AC *</b><br/><b>SAT-TV</b><br/>Smoking<br/>Boat space<br/>Pets *<br/>Washing machine *<br/>",
+
+  "home_app_left_info" : "Plaža <b>50 m</b><br/>Trgovina <b>900 m</b><br/>Restoran <b>400 m</b><br/>Benzinska <b>5 km</b><br/>Liječnik <b>3 km</b><br/>Bankomat <b>3 km</b>",
+
+  "app_open_gallery" : "Click on the image to open gallery!",
+
+  "app_red" : "Bordo",
+  "app_red_info" : "29 m&sup2; &middot;&middot;&middot; 2-4 pearson &middot;&middot;&middot; 25+ €",
+  "app_red_full_info" : "<strong>Floor</strong> &middot;&middot; 2nd<br/><strong>Pearson</strong> &middot;&middot; 2 + 2 <br/><strong>Space</strong> &middot;&middot; 29 m&sup2; + terrace 7 m&sup2; <br/>",
+  "app_red_beds_info" : "&middot; bedroom (king size bed) <br/>&middot; living room (sofa bed)",
+  "app_red_price_info" : "<strong>Price</strong> <br/>June and September<strong> &middot; 25 to 35 €</strong><br/>July and August<strong> &middot; 35 to 50 €</strong><br/>(for the rest of the year price is negotiable)",
+
+  "app_orange" : "Orange",
+  "app_orange_info" : "36 m&sup2; &middot;&middot;&middot; 2-6 pearson &middot;&middot;&middot; 40+ €",
+  "app_orange_full_info" : "<strong>Floor</strong> &middot;&middot; 2nd<br/><strong>Pearson</strong> &middot;&middot; 4 + 2 <br/><strong>Space</strong> &middot;&middot; 36 m&sup2; + terrace 8 m&sup2; <br/>",
+  "app_orange_beds_info" : "&middot; bedroom (king size bed) <br/>&middot; bedroom (sofa bed)<br/>&middot; living room (sofa bed)",
+  "app_orange_price_info" : "<strong>Price</strong> <br/>June and September<strong> &middot; 40 to 55 €</strong><br/>July and August<strong> &middot; 55 to 75 €</strong><br/>(for the rest of the year price is negotiable)",
+
+  "app_pink" : "Pink",
+  "app_pink_info" : "34 m&sup2; &middot;&middot;&middot; 2-5 pearson &middot;&middot;&middot; 35+ €",
+  "app_pink_full_info" : "<strong>Floor</strong> &middot;&middot; 1st<br/><strong>Pearson</strong> &middot;&middot; 3 + 2 <br/><strong>Space</strong> &middot;&middot; 34 m&sup2; + terrace 7 m&sup2; <br/>",
+  "app_pink_beds_info" : "&middot; bedroom (king size bed) <br/>&middot; kids bedroom (sofa bed)<br/>&middot; living room (sofa bed)",
+  "app_pink_price_info" : "<strong>Price</strong> <br/>June and September<strong> &middot; 35 to 45 €</strong><br/>July and August<strong> &middot; 45 to 65 €</strong><br/>(for the rest of the year price is negotiable)",
+
+  "app_blue" : "Blue",
+  "app_blue_info" : "29 m&sup2; &middot;&middot;&middot; 2-4 pearson &middot;&middot;&middot; 35+ €",
+  "app_blue_full_info" : "<strong>Floor</strong> &middot;&middot; 1st<br/><strong>Pearson</strong> &middot;&middot; 3 + 1 <br/><strong>Space</strong> &middot;&middot; 29 m&sup2; + terrace 8 m&sup2; <br/>",
+  "app_blue_beds_info" : "&middot; bedroom (king size bed) <br/>&middot; kids bedroom (sofa bed)<br/>&middot; living room (sofa bed)",
+  "app_blue_price_info" : "<strong>Price</strong> <br/>June and September<strong> &middot; 35 to 45 €</strong><br/>July and August<strong> &middot; 45 to 60 €</strong><br/>(for the rest of the year price is negotiable)",
+
+  "app_white" : "White",
+  "app_white_info" : "38 m&sup2; &middot;&middot;&middot; 2-6 pearson &middot;&middot;&middot; 40+ €",
+  "app_white_full_info" : "<strong>Floor</strong> &middot;&middot; ground<br/><strong>Pearson</strong> &middot;&middot; 4 + 2 <br/><strong>Space</strong> &middot;&middot; 38 m&sup2; + terrace 7 m&sup2; <br/>",
+  "app_white_beds_info" : "&middot; bedroom (king size bed) <br/>&middot; kids bedroom (two bed)<br/>&middot; living room (sofa bed)",
+  "app_white_price_info" : "<strong>Price</strong> <br/>June and September<strong> &middot; 40 to 50 €</strong><br/>July and August<strong> &middot; 50 to 70 €</strong><br/>(for the rest of the year price is negotiable)",
+
+  "app_kiwi" : "Kiwi",
+  "app_kiwi_info" : "34 m&sup2; &middot;&middot;&middot; 2-6 pearson &middot;&middot;&middot; 35+ €",
+  "app_kiwi_full_info" : "<strong>Floor</strong> &middot;&middot; ground<br/><strong>Pearson</strong> &middot;&middot; 4 + 2 <br/><strong>Space</strong> &middot;&middot; 34 m&sup2; + terrace 8 m&sup2; <br/>",
+  "app_kiwi_beds_info" : "&middot; bedroom (king size bed) <br/>&middot; kids bedroom (sofa bed)<br/>&middot; living room (sofa bed)",
+  "app_kiwi_price_info" : "<strong>Price</strong> <br/>June and September<strong> &middot; 35 to 45 €</strong><br/>July and August<strong> &middot; 45 to 65 €</strong><br/>(for the rest of the year price is negotiable)",
+
+  "about_intro" : "There are 6 apartments, each with its own bathroom, kitchen and terrace. Size of apartments vary in number of rooms and/or beds to suit the needs of couples and families. For larger groups there is a possibility of connecting the apartments through terrase. Fee for pets and washing machine (in the common room) is negotiable. All apartments are furnished and equiped with air condition that is charged additionally.",
+
+  "about_kitchen" : "Kitchen",
+  "about_kitchen_info" : " ~ cooler + freezer <br/>~ electric stove <br/> ~ dishes and cutlery",
+  "about_bathroom" : "Bathroom",
+  "about_bathroom_info" : " ~ shower <br/>~ wc + washbasin + bidet",
+  "about_terrase" : "Terrace",
+  "about_terrase_info" : "~ outdoor furniture  <br/>~ space 8 m&sup2;",
+
+  "about_3d_click" : "Clicking on the color buttons on the bottom of the 3D model you can see the layout of each apartment",
+
+  "about_accom" : "Accommodation",
+  "about_accom_subtitle" : "Want to know more about where are you staying? Click on the image to open the gallery.",
+  "about_accom_info" : "Information",
+  "about_accom_price" : "Tourist tax is included in the price.",
+  "about_accom_acontation" : "A deposit of € 100 is required to be paid prior to the arrival. As purpose of payment please indicate your name and surname.",
+  "about_accom_insured" : "Isured letter",
+  "about_accom_eur" : "Bank account EUR",
+  "about_accom_kuna" : "Bank account HRK",
+
+  "where_first" : "Our apartments are located in the charming village of Žaborić, Crveni Brig, street Zlarinska 9, located 10 km from the city of Šibenik (GPS coordinates 43.657657 , 15.945777). We have prepared basic information on how to make things easier.",
+  "where_second" : "The recommendation is to take the highway A1 to the exit Sibenik . After exiting the motorway continue driving south in the direction of Primošten / Split. You will then pass through the village of Brodarica, cross the bridge and enter in Žaboric.",
+  "where_third" : "After that sign, follow the Adriatic highway one more kilometer until you see a sign CRVENI BRIG. Shortly after that there is a sharp right turn (on a map marked with the letter). When you turn, hold the rightmost road until you reach the table ZLARINSKA ULICA. It is also the last street in the series, just follow up to the mark on the attached map.",
+  "where_fourth" : "<br/><br/><br/>When you park your car, the beach is just one minute down the street :)",
+
+  "cont_arrival" : "Arrival",
+  "cont_departure" : "Departure",
+  "cont_name" : "Name",
+  "cont_surname" : "Surname",
+  "cont_children" : "Children",
+  "cont_grownups" : "Grown ups",
+  "cont_pets" : "Pets",
+  "cont_boat" : "Boat",
+  "cont_content" : "Message",
+  "cont_send" : "Send",
+
+  "prod_kiwi" : "Kiwi",
+  "prod_kiwi_info" : " is known as medicinal fruit for more then 2000 years. In cultivation and planting it can be compared to wine grapes. Also it contains the most vitamin C of all known species of fruit. It has a pleasant sour taste.",
+  "prod_fig" : "Fig",
+  "prod_fig_info" : " one of the healtiest fruits in the world. It provides more fiber than any other fruit or vegetable and it has the property to reduce blood cholesterol. It is known as a succulent and beautiful queen of the Mediterranean.",
+  "prod_wine" : "Wine",
+  "prod_wine_info" : " is one of the most popular alcoholic beverages, traditional for Mediterranean culture. It's speculated about the role of wine as a protection against heart disease and that improves insulin sensitivity and lowers blood cholesterol.",
+  "prod_honey" : "Honey",
+  "prod_honey_info" : " is sweet and thick juice which honeybees form of nectar collected from flowers or sweet secretions (honeydew) of certain insects. Among the most perfect product of nature, it provides almost all the ingredients that make up the human body.",
+  "prod_oil" : "Olive oil",
+  "prod_oil_info" : " it is easy to digest and helps in the fight against cancer, slows aging, as well as to children to grow. The biggest feature is the beneficial effects on the heart and blood vessels. The healthiest is extra virgin olive oil.",
+
+  "info_zab_text1" : "Our apartments are located in the charming village Crveni Brig, ",
+  "info_zab_text2" : "recognizable by natural sand and pebble beaches and crystal clear waters. With its beauty stands out a cove known as the 'Cold cove', and right there are we! :)",
+  "info_zab_text3" : "Along the beautiful coastline is a long promenade so you can enjoy the beautiful sunsets and walks. At a distance of only 300m from the mainland is a very special little island,",
+  "info_zab_text4" : "the smallest and lowest inhabited island in the Adriatic sea (altitude does not exceed 1.25m).",
+
+  "info_si" : "known as Kresimir's town, is the oldest Croatian town on the Adriatic. It's already 10 centuries old, through which it was destroyed and rebuilt. Sibenik's Theatre is the oldest theater building which is still in operation. One other this to point out is Medieval Mediterranean garden.",
+
+  "info_cul" : "Culture",
+  "info_cul_text1" : "The old town boasts with it's cathedral, which is listed on UNESCO's World Heritage List as a heritage site because of it's unique way of building.",
+  "info_cul_text2" : "Sibenik is the host of the only children's manifestation in Croatia of international character - the International children's festival and therefore it is affectionately called by many 'City of children'. Furthermore, Sibenik is also known by the International medieval fair.",
+  "info_cul_text3" : "Symbol of quality and consistency is also the evening of Dalmatian chanson. Difficult history of the town is witnessed by the fortresses on the mainland St. Michael, St. John and Šubićevac and at sea Sv. Nikola where nowdays summer concerts are held.",
+
+  "info_fun" : "Fun",
+  "info_fun_text1" : "If you like a night out at your disposal are extravagant marina Frapa and famous discos:",
+  "info_fun_text2" : "Sibenik can also offer bungee jumping, or if you like something calmer you can visit the Equestrian Club Pegasus. Of course, in the vicinity you can rent diving equipment and explore the magic of the underwater environments. In the hotel complex",
+  "info_fun_text3" : "tennis courts, table tennis, mini-golf, beach volleyball etc...",
+
+  "info_nature" : "Nature",
+  "info_nature_text1" : "Nowhere in the world, on such a small area of only 3000 km2, ar there 2 national parks like Krka and Kornati.",
+  "info_nature_text2" : "known at the highest travertine barrier in Europe, 46 m high and the islet Visovac where with a church and monastery.",
+  "info_nature_text3" : "Sibenik's archipelago has striking islands, romantic beaches on the coast, cracking of wood warmed by the sun and variegated fruits."
+}

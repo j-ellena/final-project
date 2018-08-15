@@ -1,0 +1,29 @@
+<div id='contact-view'>
+
+    {{> nav }}
+
+    {{> lang }}
+
+    <h1>
+        {{ lang.cont_message }}
+    </h1>
+
+       {{ message }}
+
+       <form method='post' action='send'>
+
+           <input name='_csrf' type='hidden' value='{{ csrfToken }}'>
+
+           <input type='text' name='name' placeholder='{{ lang.cont_name }}'>
+           <input type='email' name='email' placeholder='{{ lang.cont_email }}' required>
+           <input type='text' name='phone' placeholder='{{ lang.cont_phone }}'>
+
+           <textarea name='message' rows='8' cols='80' placeholder='{{ lang.cont_content }}' required></textarea>
+
+           <button type='submit'>{{ lang.cont_send }}</button>
+
+       </form>
+       
+   </div>
+
+</div>

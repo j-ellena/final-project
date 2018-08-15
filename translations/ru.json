@@ -1,3 +1,7 @@
 {
-  "header_info" : "Добро пожаловать!"
+    "lang" : "ru",
+
+    "home_welcome" : "Добро пожаловать!",
+
+    "cont_message" : "Contact us!"
  }

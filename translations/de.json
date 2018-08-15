@@ -1,3 +1,12 @@
 {
-  "header_info" : "Willkommen!"
+    "lang" : "de",
+
+    "home_welcome" : "Willkommen!",
+
+    "cont_message" : "Kontaktieren Sie uns!",
+    "cont_name" : "Name",
+    "cont_email" : "Email Adresse",
+    "cont_phone" : "Handynummer",
+    "cont_content" : "Nachricht",
+    "cont_send" : "Schicken"
  }

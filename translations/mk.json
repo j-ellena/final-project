@@ -1,3 +1,7 @@
 {
-  "header_info" : "Добредојдовте!"
+    "lang" : "mk",
+
+    "home_welcome" : "Добредојдовте!",
+
+    "cont_message" : "Contact us!"
  }

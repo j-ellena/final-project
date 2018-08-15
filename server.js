@@ -5,7 +5,10 @@ const app = express();
 const hb = require('express-handlebars');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
+const csurf = require('csurf');
 const fs = require('fs');
+const nodemailer = require('nodemailer');
+const secrets = require('./secrets.json');
 
 // *****************************************************************************
 // requiring adequate translation json
@@ -15,9 +18,10 @@ let translationsList = [];
 const langFiles = fs.readdirSync(`${__dirname}/translations`);
 for (let i = 0; i < langFiles.length; i++) {
     const stat = fs.statSync(`${__dirname}/translations/${langFiles[i]}`);
-    if (stat.isFile() && langFiles[i].indexOf('.json') !== -1) translationsList.push(langFiles[i]);
+    if (stat.isFile() && langFiles[i].indexOf('.json') !== -1) translationsList.push(langFiles[i].slice(0, 2));
 }
 console.log('§§§§§§§ translationsList:\n', translationsList);
+
 
 const DEFAULT_LANG = 'en';
 const loadLang = (lang = DEFAULT_LANG) => {
@@ -49,6 +53,17 @@ app.use(cookieSession({
 }));
 
 // *****************************************************************************
+// csurf middleware
+// *****************************************************************************
+
+app.use(csurf());
+app.use((req, res, next) => {
+    res.locals.csrfToken = req.csrfToken();
+    res.cookie('mytoken', req.csrfToken());
+    next();
+});
+
+// *****************************************************************************
 // handlebars boilerplate
 // *****************************************************************************
 
@@ -64,12 +79,75 @@ app.get('/', (req, res) => {
     res.status(200);
     if (req.session.lang) {
         console.log('§§§§ req.session.lang defined:\n', req.session.lang, '\n');
-        res.render('home', {lang: loadLang(req.session.lang)});
+        res.render('home', {
+            lang: loadLang(req.session.lang),
+            list: translationsList
+        });
     } else {
         console.log('§§§§ req.session.lang undefined\n');
-        res.render('home', {lang: loadLang()});
+        res.render('home', {
+            lang: loadLang(),
+            list: translationsList
+        });
     }
 });
+
+app.get('/contact', (req, res) => {
+    console.log('§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§\n§§§§§§§ get app / ...rendering contact view');
+    res.status(200);
+    res.render('contact', {
+        lang: loadLang(req.session.lang),
+        list: translationsList
+    });
+});
+
+app.post("/send", (req, res) => {
+    console.log(req.body);
+    const output = `
+       <p>New message from apartmani-petkovic.hr!</p>
+       <ul>
+           <li>Name: ${req.body.name}</li>
+           <li>Email: ${req.body.email}</li>
+           <li>Phone: ${req.body.phone}</li>
+       </ul>
+       <h3>Message</h3>
+       <p>${req.body.message}</p>
+       `;
+
+    let transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
+        auth: {
+            user: secrets.user,
+            pass: secrets.pass
+        }
+    });
+
+    let mailOptions = {
+        from: '"apartmani-petkovic.hr" <jellena.phy@gmail.com>',
+        to: "jellena.phy@gmail.com",
+        subject: "Hello :heavy_check_mark:",
+        text: "Hello world?",
+        html: output
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log("Message sent: %s", info.messageId);
+        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+
+        res.render("contact", { message: "Your email was successfully sent!" });
+    });
+});
+
+// app.get('/admin', (req, res) => {
+//     console.log('§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§\n§§§§§§§ get app / ...rendering admin view');
+//     res.status(200);
+//     res.render('admin');
+// });
 
 // *****************************************************************************
 // XMLHttpRequests from the client
@@ -78,7 +156,7 @@ app.get('/', (req, res) => {
 app.post('/axios/browserLang', (req, res) => {
     console.log('§§§§§§§ post axios browserLang - req.body:\n', req.body);
     if (!req.session.lang && req.body.lang !== DEFAULT_LANG && translationsList.indexOf(req.body.lang) !== -1 ) {
-        req.session.lang === req.body.lang;
+        req.session.lang = req.body.lang;
         console.log('§§§§ !req.session.lang && browserLang != default && supported - reloading\n');
         res.json ({ reload : true });
     } else {
@@ -93,7 +171,6 @@ app.post('/axios/userLang', (req, res) => {
     res.end();
 
 });
-
 
 // *****************************************************************************
 // listening

@@ -1,3 +1,7 @@
 {
-  "header_info" : "Vítáme vás!"
+    "lang" : "cs",
+
+    "home_welcome" : "Vítáme vás!",
+
+    "cont_message" : "Contact us!"
  }

@@ -1,3 +1,7 @@
 {
-  "header_info" : "Vitajte!"
+    "lang" : "sk",
+
+    "home_welcome" : "Vitajte!",
+
+    "cont_message" : "Contact us!"
  }

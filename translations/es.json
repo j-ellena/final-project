@@ -1,3 +1,7 @@
 {
-  "header_info" : "Bienvenidos!"
+    "lang" : "es",
+
+    "home_welcome" : "Bienvenidos!",
+
+    "cont_message" : "Contact us!"
  }

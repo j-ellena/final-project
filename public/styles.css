@@ -23,9 +23,7 @@ body {
 }
 
 
-a {
 
-}
 
 /******************************************************************************/
 /* home view */
@@ -78,6 +76,23 @@ ul {
     height: 6vw;
 }
 
+#contact-nav a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    font-size: 4vw;
+    margin-right: 2vw;
+}
+
+#contact-nav-hover {
+    color: black;
+}
+
+#contact-nav-icon {
+    color: black;
+    font-size: 6vw;
+}
+
 /******************************************************************************/
 /* lang partial */
 /******************************************************************************/
@@ -117,12 +132,36 @@ ul {
 }
 
 /******************************************************************************/
+/* contact partial */
+/******************************************************************************/
+
+#contact-view,
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: darkgrey;
+}
+
+/******************************************************************************/
 /* combo */
 /******************************************************************************/
 
 #nav-partial img,
 #lang-partial img {
     cursor: pointer;
+}
+
+button,
+input,
+textarea {
+    background-color: #404040;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: lightgrey;
 }
 
 /******************************************************************************/

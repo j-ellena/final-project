@@ -132,6 +132,7 @@ ul {
 /* contact partial */
 /******************************************************************************/
 
+#admin-view,
 #contact-view,
 form {
     display: flex;
@@ -157,7 +158,7 @@ textarea {
 }
 
 input[name='daterange'] {
-    color: black;
+    color: lightgrey;
 }
 
 .available {

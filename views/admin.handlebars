@@ -1,0 +1,28 @@
+<div id='admin-view'>
+
+    {{> nav }}
+
+    {{> lang }}
+
+    <h1>Admin:</h1>
+    <h1>{{message}}</h1>
+
+    {{#if success}}
+
+        <p>Admin stuff</p>
+
+    {{else}}
+
+        <form method='post' action='adminLog'>
+
+            <input name='_csrf' type='hidden' value='{{ csrfToken }}'>
+
+            <input type='email' name='email' placeholder='Email' required>
+            <input type='password' name='password' placeholder='Password' required>
+
+            <button type='submit'>Log in</button>
+
+        </form>
+    {{/if}}
+
+</div>

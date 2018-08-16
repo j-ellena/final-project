@@ -33,6 +33,15 @@ $('#lang-nav').on('click', (e) => {
     console.log('§§§§§§§ click on lang-nav\n\n');
     $('#lang-partial').toggle();
     console.log('§§§§§§§ toggling lang-partial\n\n');
+
+    $('body').on('click', (e) => {
+        console.log('§§§§§§§ click on body\n\n');
+        if (e.target.id !== 'lang-partial' && $('#lang-partial').is(':visible')) {
+            console.log('§§§§ click outside of lang-partial\n\n');
+            $('#lang-partial').hide();
+            console.log('§§§§§ hiding lang-partial\n\n');
+        }
+    });
 });
 
 $('#lang-partial').on('click', (e) => {
@@ -68,18 +77,11 @@ $('#contact-nav').on('mouseleave', () => {
 
 
 // *****************************************************************************
-// body listeners
+// daterangepicker
 // *****************************************************************************
 
-$('body').on('click', (e) => {
-    console.log('§§§§§§§ click on body\n\n');
-    if (e.target.id !== 'lang-partial' && $('#lang-partial').is(':visible')) {
-        console.log('§§§§ click outside of lang-partial\n\n');
-        $('#lang-partial').hide();
-        console.log('§§§§§ hiding lang-partial\n\n');
-    }
+$('input[name="daterange"]').daterangepicker({
+    "autoApply": true,
+}, (start, end, label) => {
+    console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
 });
-
-// *****************************************************************************
-//
-// *****************************************************************************

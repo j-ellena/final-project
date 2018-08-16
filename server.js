@@ -103,38 +103,31 @@ app.set('view engine', 'handlebars');
 app.get('/', (req, res) => {
     console.log('§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§\n§§§§§§§ get app / ...rendering home view');
     res.status(200);
-    if (req.session.lang) {
-        console.log('§§§§ req.session.lang defined:\n', req.session.lang, '\n');
-        res.render('home', {
-            lang: loadLang(req.session.lang),
-            list: translationsList
-        });
-    } else {
-        console.log('§§§§ req.session.lang undefined\n');
-        res.render('home', {
-            lang: loadLang(),
-            list: translationsList
-        });
-    }
-});
-
-app.get('/contact', (req, res) => {
-    console.log('§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§\n§§§§§§§ get app / ...rendering contact view');
-    res.status(200);
-    res.render('contact', {
+    res.render('home', {
         lang: loadLang(req.session.lang),
         list: translationsList
     });
 });
 
-app.post("/send", (req, res) => {
-    console.log(req.body);
+app.get('/contact', (req, res) => {
+    console.log('§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§\n§§§§§§§ get app contact ...rendering contact view');
+    res.status(200);
+    res.render('contact', {
+        lang: loadLang(req.session.lang),
+        list: translationsList,
+        success: false
+    });
+});
+
+app.post('/contactSend', (req, res) => {
+    console.log('§§§§ post app contactSend req.body:\n', req.body);
     const output = `
        <p>New message from apartmani-petkovic.hr!</p>
        <ul>
            <li>Name: ${req.body.name}</li>
            <li>Email: ${req.body.email}</li>
            <li>Phone: ${req.body.phone}</li>
+           <li>Dates: ${req.body.daterange}</li>
        </ul>
        <h3>Message</h3>
        <p>${req.body.message}</p>
@@ -153,7 +146,7 @@ app.post("/send", (req, res) => {
     let mailOptions = {
         from: '"apartmani-petkovic.hr" <jellena.phy@gmail.com>',
         to: "jellena.phy@gmail.com",
-        subject: "Hello :heavy_check_mark:",
+        subject: "Contact Apartmani Petkovic",
         text: "Hello world?",
         html: output
     };
@@ -162,8 +155,8 @@ app.post("/send", (req, res) => {
         if (error) {
             return console.log(error);
         }
-        console.log("Message sent: %s", info.messageId);
-        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+        console.log("§§§§ Message sent: %s", info.messageId);
+        console.log("§§§§ Preview URL: %s", nodemailer.getTestMessageUrl(info), '\n');
 
         res.render('contact', {
             lang: loadLang(req.session.lang),
@@ -173,12 +166,34 @@ app.post("/send", (req, res) => {
     });
 });
 
-// app.get('/admin', (req, res) => {
-//     console.log('§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§\n§§§§§§§ get app / ...rendering admin view');
-//     res.status(200);
-//     res.render('admin');
-// });
+app.get('/admin', (req, res) => {
+    console.log('§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§\n§§§§§§§ get app admin ...rendering admin view');
+    res.status(200);
+    res.render('admin', {
+        lang: loadLang(req.session.lang),
+        list: translationsList,
+        success: false
+    });
+});
 
+app.post('/adminLog', (req, res) => {
+    console.log('§§§§ post app adminLog req.body:\n', req.body);
+    if (req.body.email === secrets.user && req.body.password === secrets.pass) {
+        res.render('admin', {
+            lang: loadLang(req.session.lang),
+            list: translationsList,
+            success: true,
+            message: 'Logged successfully!'
+        });
+    } else {
+        res.render('admin', {
+            lang: loadLang(req.session.lang),
+            list: translationsList,
+            success: false,
+            message: 'Username and password do not match! Try again:'
+        });
+    }
+});
 // *****************************************************************************
 // XMLHttpRequests from the client
 // *****************************************************************************

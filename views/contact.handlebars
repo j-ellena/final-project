@@ -5,20 +5,23 @@
     {{> lang }}
 
     <h1>
-        {{ lang.cont_message }}
-    </h1>
-
         {{#if success}}
             {{ lang.cont_success }}
+        {{else}}
+            {{ lang.cont_message }}
         {{/if}}
+    </h1>
 
-       <form method='post' action='send'>
+
+       <form method='post' action='contactSend'>
 
            <input name='_csrf' type='hidden' value='{{ csrfToken }}'>
 
            <input type='text' name='name' placeholder='{{ lang.cont_name }}'>
            <input type='email' name='email' placeholder='{{ lang.cont_email }}' required>
            <input type='tel' name='phone' placeholder='{{ lang.cont_phone }}'>
+
+           <input type='text' name='daterange'/>
 
            <textarea name='message' rows='5' cols='50' placeholder='{{ lang.cont_content }}' required></textarea>
 

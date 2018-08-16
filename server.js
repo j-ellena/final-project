@@ -8,6 +8,7 @@ const cookieSession = require('cookie-session');
 const csurf = require('csurf');
 const fs = require('fs');
 const nodemailer = require('nodemailer');
+const request = require('request');
 const secrets = require('./secrets.json');
 
 // *****************************************************************************
@@ -46,7 +47,6 @@ for (let i = 0; i < langFiles.length; i++) {
 // *****************************************************************************
 
 const updateList = (current) => {
-
     for (let i in translationsList) {
         if (translationsList[i].langJSON === current) {
             translationsList[i].flag = true;
@@ -97,6 +97,17 @@ app.engine('handlebars', hb({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 // *****************************************************************************
+// checking for adminLog
+// *****************************************************************************
+
+// const checkForAdmin = (req, res, next) => {
+//     console.log('§§§§§§§ checking for admin\n');
+//     !req.session.admin
+//         ? res.redirect('/')
+//         : next();
+// };
+
+// *****************************************************************************
 // HttpRequests from the client
 // *****************************************************************************
 
@@ -138,8 +149,8 @@ app.post('/contactSend', (req, res) => {
         port: 587,
         secure: false,
         auth: {
-            user: secrets.user,
-            pass: secrets.pass
+            user: secrets.cont_mail,
+            pass: secrets.cont_pass
         }
     });
 
@@ -178,7 +189,8 @@ app.get('/admin', (req, res) => {
 
 app.post('/adminLog', (req, res) => {
     console.log('§§§§ post app adminLog req.body:\n', req.body);
-    if (req.body.email === secrets.user && req.body.password === secrets.pass) {
+    if (req.body.email === secrets.admin_mail && req.body.password === secrets.admin_pass) {
+        req.session.admin = true;
         res.render('admin', {
             lang: loadLang(req.session.lang),
             list: translationsList,
@@ -220,6 +232,32 @@ app.post('/axios/userLang', (req, res) => {
     res.end();
 
 });
+
+// *****************************************************************************
+// openWeatherAPI
+// *****************************************************************************
+
+const getWeather = () => {
+    let apiKey = secrets.owm_key;
+    let city = secrets.owm_city;
+    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    request(url, function (err, response, body) {
+        if(err){
+            console.log('§§§§§§§§§§§§§§ error:', err);
+        } else {
+            let data = JSON.parse(body);
+            console.log('§§§§§§§ data:\n', data);
+            console.log('§§§§§§§ city:\n', data.name);
+            console.log('§§§§§§§ temp:\n', data.main.temp);
+            console.log('§§§§§§§ humidity:\n', data.main.humidity);
+            console.log('§§§§§§§ pressure:\n', data.main.pressure);
+            console.log('§§§§§§§ icon url', `http://openweathermap.org/img/w/${data.weather[0].icon}.png`);
+        }
+    });
+};
+
+getWeather();
 
 // *****************************************************************************
 // listening

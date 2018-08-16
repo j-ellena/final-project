@@ -1,4 +1,4 @@
-var instance = axios.create({
+let instance = axios.create({
     xsrfCookieName: 'mytoken',
     xsrfHeaderName: 'csrf-token'
 });
@@ -80,8 +80,8 @@ $('#contact-nav').on('mouseleave', () => {
 // daterangepicker
 // *****************************************************************************
 
-$('input[name="daterange"]').daterangepicker({
-    "autoApply": true,
+$('#dateContact').daterangepicker({
+    'autoApply': true,
 }, (start, end, label) => {
     console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
 });

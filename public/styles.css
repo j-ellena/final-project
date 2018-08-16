@@ -3,7 +3,7 @@
     outline: 0;
     box-sizing: border-box;
     font-family: 'Courgette', cursive;
-    color: white;
+    /* color: white; */
     font-size: 3vw;
 }
 
@@ -73,6 +73,7 @@ ul {
     height: 6vw;
 }
 
+#admin-nav a,
 #contact-nav a {
     text-decoration: none;
     cursor: pointer;
@@ -81,10 +82,12 @@ ul {
     margin-right: 2vw;
 }
 
+#admin-nav-hover,
 #contact-nav-hover {
     color: black;
 }
 
+#admin-nav-icon,
 #contact-nav-icon {
     color: black;
     font-size: 6vw;
@@ -161,7 +164,9 @@ input[name='daterange'] {
     color: lightgrey;
 }
 
-.available {
+li,
+.available,
+.data-range-key {
     color: black;
 }
 

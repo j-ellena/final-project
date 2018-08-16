@@ -14,20 +14,46 @@ const secrets = require('./secrets.json');
 // requiring adequate translation json
 // *****************************************************************************
 
-let translationsList = [];
+const DEFAULT_LANG = 'hr';
+const loadLang = (lang = DEFAULT_LANG) => {
+    const loaded = require(`./translations/${lang}.json`);
+    if (loaded) {
+        updateList(lang);
+        return loaded;
+    } else {
+        updateList(DEFAULT_LANG);
+        return require(`./translations/${DEFAULT_LANG}.json`);
+    }
+};
+
+// *****************************************************************************
+// gathering available translations
+// *****************************************************************************
+
+let translationsList = {};
 const langFiles = fs.readdirSync(`${__dirname}/translations`);
 for (let i = 0; i < langFiles.length; i++) {
     const stat = fs.statSync(`${__dirname}/translations/${langFiles[i]}`);
-    if (stat.isFile() && langFiles[i].indexOf('.json') !== -1) translationsList.push(langFiles[i].slice(0, 2));
+    if (stat.isFile() && langFiles[i].indexOf('.json') !== -1) {
+        translationsList[langFiles[i].slice(0, 2)] = {
+            langJSON: langFiles[i].slice(0, 2)
+        };
+    }
 }
-console.log('§§§§§§§ translationsList:\n', translationsList);
 
+// *****************************************************************************
+// updating the current language
+// *****************************************************************************
 
-const DEFAULT_LANG = 'en';
-const loadLang = (lang = DEFAULT_LANG) => {
-    const loaded = require(`./translations/${lang}.json`);
-    if (loaded) return loaded;
-    else return require(`./translations/${DEFAULT_LANG}.json`);
+const updateList = (current) => {
+
+    for (let i in translationsList) {
+        if (translationsList[i].langJSON === current) {
+            translationsList[i].flag = true;
+        } else {
+            translationsList[i].flag = false;
+        }
+    }
 };
 
 // *****************************************************************************
@@ -139,7 +165,11 @@ app.post("/send", (req, res) => {
         console.log("Message sent: %s", info.messageId);
         console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
-        res.render("contact", { message: "Your email was successfully sent!" });
+        res.render('contact', {
+            lang: loadLang(req.session.lang),
+            list: translationsList,
+            success: true
+        });
     });
 });
 
@@ -155,9 +185,11 @@ app.post("/send", (req, res) => {
 
 app.post('/axios/browserLang', (req, res) => {
     console.log('§§§§§§§ post axios browserLang - req.body:\n', req.body);
-    if (!req.session.lang && req.body.lang !== DEFAULT_LANG && translationsList.indexOf(req.body.lang) !== -1 ) {
+    if (!req.session.lang && req.body.lang !== DEFAULT_LANG && translationsList.hasOwnProperty(req.body.lang) ) {
         req.session.lang = req.body.lang;
-        console.log('§§§§ !req.session.lang && browserLang != default && supported - reloading\n');
+        console.log('§§§§ !req.session.lang && browserLang != default && supported - reloading');
+        updateList(req.session.lang);
+        console.log('§§§§ updated list\n');
         res.json ({ reload : true });
     } else {
         console.log('§§§§ req.session.lang || browserLang == default || not supported\n');
@@ -166,8 +198,10 @@ app.post('/axios/browserLang', (req, res) => {
 });
 
 app.post('/axios/userLang', (req, res) => {
-    console.log('§§§§§§§ post axios userLang - req.body:\n', req.body, '\n');
+    console.log('§§§§§§§ post axios userLang - req.body:\n', req.body);
     req.session.lang = req.body.lang;
+    updateList(req.session.lang);
+    console.log('§§§§ updated list\n');
     res.end();
 
 });

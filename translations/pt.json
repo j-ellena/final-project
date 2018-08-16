@@ -3,5 +3,6 @@
 
     "home_welcome" : "Bem-vindos!",
 
-    "cont_message" : "Contact us!"
+    "cont_message" : "Contact us!",
+    "cont_success" : "Your message was successfully sent!"
  }

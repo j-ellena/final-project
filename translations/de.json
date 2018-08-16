@@ -8,5 +8,6 @@
     "cont_email" : "Email Adresse",
     "cont_phone" : "Handynummer",
     "cont_content" : "Nachricht",
-    "cont_send" : "Schicken"
+    "cont_send" : "Schicken",
+    "cont_success" : "Ihre Nachricht wurde erfolgreich gesendet!"
  }

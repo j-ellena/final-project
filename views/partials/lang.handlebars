@@ -1,10 +1,13 @@
 <div id='lang-partial'>
 
     {{#each list}}
-    <p>
-        <img class='lang-icon' src='../assets/nav/{{this}}.png' alt='{{this}}'>
-    </p>
+        {{#unless this.flag}}
 
+        <p>
+            <img class='lang-icon' src='../assets/nav/{{this.langJSON}}.png' alt='{{this.langJSON}}'>
+        </p>
+
+        {{/unless}}
     {{/each}}
 
 </div>

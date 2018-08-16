@@ -8,7 +8,9 @@
         {{ lang.cont_message }}
     </h1>
 
-       {{ message }}
+        {{#if success}}
+            {{ lang.cont_success }}
+        {{/if}}
 
        <form method='post' action='send'>
 
@@ -16,14 +18,14 @@
 
            <input type='text' name='name' placeholder='{{ lang.cont_name }}'>
            <input type='email' name='email' placeholder='{{ lang.cont_email }}' required>
-           <input type='text' name='phone' placeholder='{{ lang.cont_phone }}'>
+           <input type='tel' name='phone' placeholder='{{ lang.cont_phone }}'>
 
-           <textarea name='message' rows='8' cols='80' placeholder='{{ lang.cont_content }}' required></textarea>
+           <textarea name='message' rows='5' cols='50' placeholder='{{ lang.cont_content }}' required></textarea>
 
            <button type='submit'>{{ lang.cont_send }}</button>
 
        </form>
-       
+
    </div>
 
 </div>

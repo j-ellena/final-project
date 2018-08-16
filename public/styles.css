@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: 'Courgette', cursive;
     color: white;
-    /* font-size: 3vw; */
+    font-size: 3vw;
 }
 
 body {
@@ -21,9 +21,6 @@ body {
 .right {
     margin-left: auto;
 }
-
-
-
 
 /******************************************************************************/
 /* home view */
@@ -61,7 +58,7 @@ body {
     align-items: center;
     padding: 0 0.2vw;
     overflow: hidden;
-    background-color: white;
+    background: rgba(255, 255, 255, 0.2);
 }
 
 ul {
@@ -157,6 +154,14 @@ button,
 input,
 textarea {
     background-color: #404040;
+}
+
+input[name='daterange'] {
+    color: black;
+}
+
+.available {
+    color: black;
 }
 
 input::-webkit-input-placeholder,

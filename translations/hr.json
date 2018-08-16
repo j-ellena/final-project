@@ -8,5 +8,6 @@
     "cont_email" : "Email adresa",
     "cont_phone" : "Broj mobitela",
     "cont_content" : "Poruka",
-    "cont_send" : "Pošalji"
+    "cont_send" : "Pošalji",
+    "cont_success" : "Vaša poruka je uspješno poslana!"
 }

@@ -8,5 +8,6 @@
     "cont_email" : "Email address",
     "cont_phone" : "Mobile number",
     "cont_content" : "Message",
-    "cont_send" : "Send"
+    "cont_send" : "Send",
+    "cont_success" : "Your message was successfully sent!"
 }

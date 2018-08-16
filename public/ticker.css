@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+    color: white;
+    /* margin: 0; */
+}
+
+#ticker-partial {
+    width: 100vw;
+    height: 4vh;
+    bottom: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#ticker-partial img {
+    height: 4vh;
+}
+
+#header,
+#footer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+#header {
+    top: 0;
+}
+
+#footer {
+    bottom: 0;
+}
+
+.headlines {
+    white-space: nowrap;
+    position: absolute;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* starting empty from the right */
+#header .headlines {
+    left: 100%;
+}
+
+/* starting empty from the left */
+#footer .headlines {
+    left: 0;
+}
+
+span {
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 3.8vh;
+    vertical-align: center;
+}
+
+#header .headlines span {
+    padding-right: 10vw;
+}
+
+#footer .headlines span {
+    padding-left: 10vw;
+}

@@ -7,12 +7,19 @@
         <link rel='stylesheet' href='/styles.css'>
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Courgette'>
         <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css'>
-        <!-- <link rel='stylesheet' href='availability-calendar.css'> -->
+        <link rel='stylesheet' href='availability-calendar.css' type='text/css'>
+        <link rel='stylesheet' href='ticker.css' type='text/css'>
 
     </head>
     <body>
 
         <div id='main-layout'>
+
+            {{> nav }}
+
+            {{> lang }}
+
+            {{> ticker }}
 
             {{{ body }}}
 
@@ -24,4 +31,18 @@
 <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
 <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js'></script>
+<script src='availability-calendar.js'></script>
+<script src='ticker.js'></script>
 <script type='text/javascript' src='/client.js' charset='utf-8'></script>
+
+
+<script>
+        var unavailableDates = [
+            {start: '2018-08-31', end: '2018-09-05'},
+            {start: '2018-09-11', end: '2018-09-15'},
+            {start: '2018-09-15', end: '2018-09-23'},
+            {start: '2018-10-01', end: '2018-10-07'}
+        ];
+
+        $('#calendar').availabilityCalendar(unavailableDates);
+</script>

@@ -8,6 +8,8 @@
 }
 
 body {
+    width: 100vw;
+    height: 100vh;
 }
 
 #main-layout {
@@ -33,7 +35,11 @@ body {
     background-position: center;
     background-size: cover;
     width: 100vw;
-    min-height: 100vh;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: -10;
 }
 
 #home-view h1 {
@@ -45,6 +51,7 @@ body {
     background: rgba(0, 0, 0, 0.2);
     text-align: center;
     border-radius: 3vw;
+    color: white;
 }
 
 /******************************************************************************/
@@ -59,6 +66,7 @@ body {
     padding: 0 0.2vw;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.2);
+    /* background: yellow; */
 }
 
 ul {
@@ -122,12 +130,12 @@ ul {
 }
 
 .lang-icon {
-    height: 6vw;
+    height: 4vh;
     margin: 1vw 0;
 }
 
 .lang-icon:hover {
-    height: 8vw;
+    height: 6vh;
     margin: 0;
 }
 

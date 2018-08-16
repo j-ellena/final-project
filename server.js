@@ -120,13 +120,18 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/ticker', (req, res) => {
+    console.log('§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§\n§§§§§§§ get app / ...rendering home view');
+    res.status(200);
+    res.render('ticker');
+});
+
 app.get('/contact', (req, res) => {
     console.log('§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§\n§§§§§§§ get app contact ...rendering contact view');
     res.status(200);
     res.render('contact', {
         lang: loadLang(req.session.lang),
-        list: translationsList,
-        success: false
+        list: translationsList
     });
 });
 
@@ -169,7 +174,7 @@ app.post('/contactSend', (req, res) => {
         console.log("§§§§ Message sent: %s", info.messageId);
         console.log("§§§§ Preview URL: %s", nodemailer.getTestMessageUrl(info), '\n');
 
-        res.render('contact', {
+        res.render('/', {
             lang: loadLang(req.session.lang),
             list: translationsList,
             success: true
@@ -230,7 +235,13 @@ app.post('/axios/userLang', (req, res) => {
     updateList(req.session.lang);
     console.log('§§§§ updated list\n');
     res.end();
+});
 
+app.get('/axios/weather', (req, res) => {
+    getWeather().then((data) => {
+        console.log('§§§§§§§ get axios weather - data:\n', data);
+        res.json({weather: data});
+    });
 });
 
 // *****************************************************************************
@@ -238,26 +249,31 @@ app.post('/axios/userLang', (req, res) => {
 // *****************************************************************************
 
 const getWeather = () => {
-    let apiKey = secrets.owm_key;
-    let city = secrets.owm_city;
-    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    return new Promise((resolve, reject) => {
 
-    request(url, function (err, response, body) {
-        if(err){
-            console.log('§§§§§§§§§§§§§§ error:', err);
-        } else {
-            let data = JSON.parse(body);
-            console.log('§§§§§§§ data:\n', data);
-            console.log('§§§§§§§ city:\n', data.name);
-            console.log('§§§§§§§ temp:\n', data.main.temp);
-            console.log('§§§§§§§ humidity:\n', data.main.humidity);
-            console.log('§§§§§§§ pressure:\n', data.main.pressure);
-            console.log('§§§§§§§ icon url', `http://openweathermap.org/img/w/${data.weather[0].icon}.png`);
-        }
+        const apiKey = secrets.owm_key;
+        const city = secrets.owm_city;
+        const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+        request(url, function (err, response, body) {
+            if(err) {
+                reject (err);
+            } else {
+                let data = JSON.parse(body);
+                const weather = [
+                    'Šibenik',
+                    `${data.main.temp} &#176;C`,
+                    `${data.main.humidity} %`,
+                    `${data.main.pressure} hPa`,
+                    `<img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png"`
+                ];
+                resolve (weather);
+            }
+        });
     });
 };
 
-getWeather();
+
 
 // *****************************************************************************
 // listening

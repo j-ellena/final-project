@@ -71,6 +71,10 @@
 
 .availability-calendar .ex-month {opacity: 0.4}
 .availability-calendar .unavailable {position: relative}
+.availability-calendar .reserved {
+	position: relative;
+	background-color: lightblue;
+}
 
 .availability-calendar .unavailable div {
 	position: absolute;
@@ -81,6 +85,17 @@
 	background: #F88;
 	border-top: 1px solid #A33;
 	border-bottom: 1px solid #A33;
+}
+
+.availability-calendar .reserved div {
+	position: absolute;
+	top: 40%;
+	left: 0;
+	right: -1px;
+	height: 30px;
+	background: lightblue;
+	border-top: 1px solid blue;
+	border-bottom: 1px solid blue;
 }
 
 .availability-calendar .unavailable:last-child div {right: 0}

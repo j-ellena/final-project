@@ -1,11 +1,14 @@
+
 <div id='home-view'>
 
     {{#if success}}
-        {{ lang.cont_success }}
+
+        <h5>{{ lang.cont_success }}</h5>
+
+    {{else}}
+
+        <a href='/apps'><span><h1>{{ lang.home_welcome }}</h1></span></a>
+
     {{/if}}
-    
-    <h1>
-        {{ lang.home_welcome }}
-    </h1>
 
 </div>

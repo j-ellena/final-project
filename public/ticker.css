@@ -1,9 +1,3 @@
-* {
-    box-sizing: border-box;
-    color: white;
-    /* margin: 0; */
-}
-
 #ticker-partial {
     width: 100vw;
     height: 4vh;
@@ -12,8 +6,14 @@
     background: rgba(0, 0, 0, 0.5);
 }
 
-#ticker-partial img {
-    height: 4vh;
+#ticker-partial #footer .headlines span img {
+    height: 3.8vh;
+    vertical-align: bottom;
+    padding-right: 2vw;
+}
+
+.filter {
+    filter: invert(100%);
 }
 
 #header,
@@ -50,17 +50,21 @@
     left: 0;
 }
 
-span {
+#ticker-partial span {
     font-weight: bold;
     font-family: monospace;
     font-size: 3.8vh;
-    vertical-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }
 
 #header .headlines span {
-    padding-right: 10vw;
+    padding-right: 9vw;
 }
 
 #footer .headlines span {
-    padding-left: 10vw;
+    padding-left: 9vw;
 }

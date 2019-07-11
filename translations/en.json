@@ -3,10 +3,22 @@
 
     "home_welcome" : "Welcome!",
 
+    "info_beach" : "Beach",
+    "info_coctail" : "Bar",
+    "info_restaurant" : "Restaurant",
+    "info_atm" : "ATM",
+    "info_shopping" : "Shopping",
+    "info_fuel" : "Fuel Station",
+    "info_airport" : "Airport",
+    "info_hospital" : "Hospital",
+
+
     "cont_message" : "Contact us!",
     "cont_name" : "Name",
     "cont_email" : "Email address",
     "cont_phone" : "Mobile number",
+    "cont_start" : "Start date",
+    "const_end" : "End date",
     "cont_content" : "Message",
     "cont_send" : "Send",
     "cont_success" : "Your message was successfully sent!"

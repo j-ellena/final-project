@@ -1,20 +1,20 @@
 <ul id='nav-partial'>
 
-    <li id='admin-nav'>
-        <a id='admin-nav-icon' href='/admin'>{Admin}</a>
-        <!-- <a id='contadmin-nav-hover' href='/admin'>Admin</a> -->
+    <li class='left' id='admin-nav'>
+        <a id='admin-nav-icon' href='/admin'><img src='../assets/img/admin.png' alt='admin'></a>
+    </li>
+
+    <li class='left' id='contact-nav'>
+        <a id='contact-nav-icon' href='/contact'><img src='../assets/img/contact.png' alt='contact'></a>
+        <a id='contact-nav-hover' href='/contact'><span>{{ lang.cont_message }}</span></a>
     </li>
 
     <li class='center' id='logo-nav'>
-        <a href='/'><img src='../assets/nav/logo.png' alt='logo'></a>
+        <a href='/apps'><img src='../assets/nav/logo.png' alt='logo'></a>
     </li>
 
-    <li id='contact-nav'>
-        <a id='contact-nav-icon' href='/contact'>{Contact_icon}</a>
-        <a id='contact-nav-hover' href='/contact'>{{ lang.cont_message }}</a>
-    </li>
 
-    <li id='lang-nav'>
+    <li class='right' id='lang-nav'>
         <img src='../assets/nav/{{ lang.lang }}.png' alt='{{ lang.lang }}'>
     </li>
 

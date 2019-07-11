@@ -116,7 +116,8 @@ app.get('/', (req, res) => {
     res.status(200);
     res.render('home', {
         lang: loadLang(req.session.lang),
-        list: translationsList
+        list: translationsList,
+        success: false
     });
 });
 
@@ -174,7 +175,7 @@ app.post('/contactSend', (req, res) => {
         console.log("§§§§ Message sent: %s", info.messageId);
         console.log("§§§§ Preview URL: %s", nodemailer.getTestMessageUrl(info), '\n');
 
-        res.render('/', {
+        res.render('home', {
             lang: loadLang(req.session.lang),
             list: translationsList,
             success: true
@@ -211,6 +212,16 @@ app.post('/adminLog', (req, res) => {
         });
     }
 });
+
+app.get('/apps', (req, res) => {
+    console.log('§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§\n§§§§§§§ get app apps ...rendering apps view');
+    res.status(200);
+    res.render('apps', {
+        lang: loadLang(req.session.lang),
+        list: translationsList
+    });
+});
+
 // *****************************************************************************
 // XMLHttpRequests from the client
 // *****************************************************************************
@@ -261,11 +272,10 @@ const getWeather = () => {
             } else {
                 let data = JSON.parse(body);
                 const weather = [
-                    'Šibenik',
-                    `${data.main.temp} &#176;C`,
-                    `${data.main.humidity} %`,
-                    `${data.main.pressure} hPa`,
-                    `<img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png"`
+                    `<img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="weather"/> Šibenik`,
+                    `<img class="filter" src="../assets/owm/thermometer.png" alt="thermometer"/> ${data.main.temp} &#176;C`,
+                    `<img class="filter" src="../assets/owm/hygrometer.png" alt="hygrometer"/> ${data.main.humidity} %`,
+                    `<img class="filter" src="../assets/owm/barometer.png" alt="barometer"/> ${data.main.pressure} hPa`
                 ];
                 resolve (weather);
             }

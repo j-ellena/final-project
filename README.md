@@ -13,7 +13,5 @@ Full-Stack Project
 ![apps](https://github.com/j-ellena/final-project/blob/master/public/assets/apps.png)
 
 - openWeather API integrated as ticker in footer
-![weather](https://github.com/j-ellena/final-project/blob/master/public/assets/ticker.gif)
-
 - contact form
 - calendar availability (in progress)
